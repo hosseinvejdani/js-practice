@@ -1,23 +1,9 @@
-console.log('hello taha jan!')
-
-// equality operators in js
-// (===) -> same type and same value -> Strict Equality
-// (==) -> same value only -> Lose Equality
-
-console.log( 1 === 1 ) // true
-console.log( 1 == 1 ) //true
-console.log('--------------')
-
-console.log( 1 === 1.0 ) //true
-console.log( 1 == 1.0 ) //true
-console.log('--------------')
+// ternary operators in 
+// Embedded expressions
 
 
-console.log( 1 === true ) // true
-console.log( 1 == true ) // flase
-console.log('--------------')
+let point = 110;
 
+let level = point > 100 ? 'gold' : 'silver'
 
-console.log( 1 === '1' ) // true
-console.log( 1 == '1' ) // flase
-console.log('--------------')
+console.log(`level is ${level} for point ${point}!`)
