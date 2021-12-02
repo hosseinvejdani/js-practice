@@ -1,77 +1,37 @@
-// Logical Operators with non-boolean 
-// Falsy and truthy
+/* 
+**Operator precedence:
+Operator precedence determines the order in which operators are evaluated.
+Operators with higher precedence are evaluated first.
 
-// AND -> &&
-console.log('&& : ',true && true)
+**Associativity : 
+Associativity determines the order in which operators of the same
+precedence are processed. For example, consider an expression:
 
-// OR -> ||
-console.log('|| : ',true || true)
+a OP b OP c
 
-// NOT -> !
-console.log('! : ',true || !true)
+Left-associativity (left-to-right) means that it is processed as (a OP b) OP c,
+while right-associativity (right-to-left) means it is interpreted as a OP (b OP c). 
 
-// *** Falsy values in js are:
-   // undefined
-   // null
-   // 0 and -0
-   // 0n
-   // "", '', ``
-   // false
-   // NaN
+src:
+http://www-lia.deis.unibo.it/materiale/JS/developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence.html
 
-//In JavaScript, a truthy value is a value that is considered true when encountered 
-//in a Boolean context. All values are truthy unless they are 
-// defined as falsy (i.e., except for false, 0, -0, 0n, "", null, undefined, and NaN).
-   // any string except ''
-   // any number
-   // any object
-   // any array
-   // any function
+in the case of logical operators :
+Precedence        type           Associativity	   operators
+6	               Logical AND	   left-to-right	   … && …
+5	               Logical OR	   left-to-right	   … || …
 
+*/
 
+// so the some example is here:
+a = b = 5; // same as writing a = (b = 5);
+true || true && true && false // -> true
 
-// Examples of truthy values in JavaScript 
-//(which will be coerced to true in boolean
-//  contexts, and thus execute the if block):
-   // if (true)
-   // if ({})
-   // if ([])
-   // if (42)
-   // if ("0")
-   // if ("false")
-   // if (new Date())
-   // if (-42)
-   // if (12n)
-   // if (3.14)
-   // if (-3.14)
-   // if (Infinity)
-   // if (-Infinity)
+/*
+Looking at the code snippets above, 6 / 3 / 2 is the 
+same as (6 / 3) / 2 because division is left-associative.
+Exponentiation, on the other hand, is right-associative, so
+2 ** 3 ** 2 is the same as 2 ** (3 ** 2).
 
 
-// The logical AND operator, &&
-// If the first object is truthy, the logical AND operator returns the second operand:
-console.log(true && "dog")
-// ↪ "dog"
 
-console.log([] && "dog")
-// ↪ "dog"
-
-
-// Examples of falsy values in JavaScript (which are coerced 
-//to false in Boolean contexts, and thus bypass the if block):
-   // if (false)
-   // if (null)
-   // if (undefined)
-   // if (0)
-   // if (-0)
-   // if (0n)
-   // if (NaN)
-   // if ("")
-
-// The logical AND operator, &&
-// If the first object is falsy, it returns that object
-console.log(false && "dog")
-// ↪ false
-
-console.log(0 && "dog")
-// ↪ 0
+*/
