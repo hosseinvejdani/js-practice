@@ -1,37 +1,7 @@
 // factory function
-/*
-A factory function is a function that returns a new object.
-The following creates a person object named john:
-*/
+// this is factory function 
 
-let john = {
-   firstName: 'John',
-   lastName: 'Doe',
-   getFullName() {
-       return this.firstName + ' ' + this.lastName;
-   }
-};
-
-console.log(john.getFullName());
-
-// Suppose that you need to create another similar object called jane, 
-// you can duplicate the code as follows:
-let jane = {
-   firstName: 'Jane',
-   lastName: 'Doe',
-   getFullName() {
-       return this.firstName + ' ' + this.lastName;
-   }
-};
-
-console.log(jane.getFullName());
-
-/*
-The more object you want to create, the more duplicate code you need to copy.
-
-To avoid copying the same code all over again and again, you can develop a
- function that creates the person object:
-*/
+// the name of construture function set based on camel notation
 
 function createPerson(firstName, lastName) {
    return {
@@ -43,14 +13,23 @@ function createPerson(firstName, lastName) {
    }
 }
 
-let john = createPerson('John', 'Doe'),
-    jane = createPerson('Jane', 'Doe');
+let john = createPerson('John', 'Doe');
 
 console.log(john.getFullName());
-console.log(jane.getFullName());
 
 /*
-With the factory function, you create any number of the person objects
+With the constructor function, you create any number of the person objects
 you want without duplicating code.
 */
+// the name of constructor function set based on pascal notation
+function Person(firstName, lastName) {
+   this.firstName = firstName;
+   this.lastName = lastName;
+   this.fullName = function() {
+     return this.firstName + " " + this.lastName;
+   };
+ }
 
+ let jack = new Person('jack', 'Doe');
+
+ console.log(jack.fullName());
