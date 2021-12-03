@@ -1,32 +1,56 @@
-// Object basics in js
+// factory function
+/*
+A factory function is a function that returns a new object.
+The following creates a person object named john:
+*/
 
-// example 1 
-const car = {type:"Fiat", model:"500", color:"white"};
-
-console.log(car.type)
-console.log(car.color)
-// or
-console.log(car['model'])
-console.log(car['color'])
-
-// example 2 (A method is a function stored as a property.)
-const person = {
-   firstName: "John",
-   lastName : "Doe",
-   id       : 5566,
-   fullName : function() {
-     return this.firstName + " " + this.lastName;
+let john = {
+   firstName: 'John',
+   lastName: 'Doe',
+   getFullName() {
+       return this.firstName + ' ' + this.lastName;
    }
 };
 
-fullName = person.fullName() // calling method
-console.log(fullName)
+console.log(john.getFullName());
+
+// Suppose that you need to create another similar object called jane, 
+// you can duplicate the code as follows:
+let jane = {
+   firstName: 'Jane',
+   lastName: 'Doe',
+   getFullName() {
+       return this.firstName + ' ' + this.lastName;
+   }
+};
+
+console.log(jane.getFullName());
 
 /*
-The <this> Keyword
-In a function definition, this refers to the "owner" of the function.
+The more object you want to create, the more duplicate code you need to copy.
 
-In the example above, this is the person object that "owns" the fullName function.
-
-In other words, this.firstName means the firstName property of this object.
+To avoid copying the same code all over again and again, you can develop a
+ function that creates the person object:
 */
+
+function createPerson(firstName, lastName) {
+   return {
+       firstName: firstName,
+       lastName: lastName,
+       getFullName() {
+           return firstName + ' ' + lastName;
+       }
+   }
+}
+
+let john = createPerson('John', 'Doe'),
+    jane = createPerson('Jane', 'Doe');
+
+console.log(john.getFullName());
+console.log(jane.getFullName());
+
+/*
+With the factory function, you create any number of the person objects
+you want without duplicating code.
+*/
+
