@@ -1,91 +1,32 @@
-// for in loop
-/*
-The for...of statement creates a loop iterating over iterable objects, 
-including: built-in String, Array, array-like objects (e.g., arguments
-or NodeList), TypedArray, Map, Set, and user-defined iterables.
+// Object basics in js
 
-syntax is here
+// example 1 
+const car = {type:"Fiat", model:"500", color:"white"};
 
-for (variable of iterable) {
-  statement
-}
+console.log(car.type)
+console.log(car.color)
+// or
+console.log(car['model'])
+console.log(car['color'])
 
-*/
-//============================================
-//Iterating over an Array
-const array1 = ['a', 'b', 'c'];
-
-for (const element of array1) {
-  console.log(element);
-}
-
-// expected output: "a"
-// expected output: "b"
-// expected output: "c"
-
-//============================================
-//Iterating over a String
-const iterable = 'boo';
-
-for (const value of iterable) {
-  console.log(value);
-}
-// "b"
-// "o"
-// "o"
-
-
-//============================================
-// Iterating over a Map
-const iterable = new Map([['a', 1], ['b', 2], ['c', 3]]);
-
-for (const entry of iterable) {
-  console.log(entry);
-}
-// ['a', 1]
-// ['b', 2]
-// ['c', 3]
-
-for (const [key, value] of iterable) {
-  console.log(value);
-}
-// 1
-// 2
-// 3
-
-
-//============================================
-//Iterating over a Set
-const iterable = new Set([1, 1, 2, 2, 3, 3]);
-
-for (const value of iterable) {
-  console.log(value);
-}
-// 1
-// 2
-// 3
-
-
-//============================================
-// Iterating over the arguments object
-// You can iterate over the arguments object to 
-// examine all of the parameters passed into a JavaScript function:
-(function() {
-   for (const argument of arguments) {
-     console.log(argument);
+// example 2 (A method is a function stored as a property.)
+const person = {
+   firstName: "John",
+   lastName : "Doe",
+   id       : 5566,
+   fullName : function() {
+     return this.firstName + " " + this.lastName;
    }
- })(1, 2, 3);
- 
- // 1
- // 2
- // 3
+};
 
- /*
- Difference between for...of and for...in
-Both for...in and for...of statements iterate over something.
-The main difference between them is in what they iterate over.
+fullName = person.fullName() // calling method
+console.log(fullName)
 
-The for...in statement iterates over the enumerable properties of an object.
+/*
+The <this> Keyword
+In a function definition, this refers to the "owner" of the function.
 
-The for...of statement iterates over values that the iterable object defines to be iterated over.
- */
+In the example above, this is the person object that "owns" the fullName function.
+
+In other words, this.firstName means the firstName property of this object.
+*/
